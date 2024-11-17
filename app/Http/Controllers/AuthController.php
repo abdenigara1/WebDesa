@@ -43,10 +43,10 @@ class AuthController extends Controller
             session(['user' => $user]);
     
             // Redirect berdasarkan role
-            if ($user->role = 'user') {
+            if ($user->role === 'user') {
                 return redirect()->route('dashboard')->with('success', 'Login berhasil!');
                 
-            } elseif ($user->role ='admin') {
+            } elseif ($user->role ==='admin') {
                 return redirect('/admin')->with('success', 'Login berhasil!');
             }
         }
