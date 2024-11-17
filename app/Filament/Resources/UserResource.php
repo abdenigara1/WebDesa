@@ -29,10 +29,10 @@ class UserResource extends Resource
                     ->password()
                     ->required()
                     ->minLength(8),
-                Select::make('is_admin')
+                Select::make('role')
                     ->options([
-                        '0' => 'admin',
-                        '1' => 'user',
+                        'admin' => 'admin',
+                        'user' => 'user',
                     ])
                     ->required(),
             ]);
@@ -48,8 +48,8 @@ class UserResource extends Resource
                 TextColumn::make('is_admin')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        '0' => 'danger',
-                        '1' => 'success',
+                        'admin' => 'danger',
+                        'user' => 'success',
                         default => 'gray',
                     }),
             ])

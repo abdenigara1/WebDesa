@@ -26,25 +26,37 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
+    
         // Cari user berdasarkan email
         $user = User::where('email', $request->email)->first();
-
-        // Periksa apakah user ditemukan dan password cocok
-        if ($user && $user->is_admin == 1 && Hash::check($request->password, $user->password)) {
+    
+        // Periksa apakah user ditemukan
+        if (!$user) {
+            return back()->withErrors([
+                'email' => 'Email tidak ditemukan.',
+            ])->onlyInput('email');
+        }
+    
+        // Periksa apakah password cocok
+        if (Hash::check($request->password, $user->password)) {
             // Simpan data user ke session
             session(['user' => $user]);
-        
-            // Redirect ke dashboard dengan pesan sukses
-            return redirect()->route('dashboard')->with('success', 'Login berhasil!');
+    
+            // Redirect berdasarkan role
+            if ($user->role = 'user') {
+                return redirect()->route('dashboard')->with('success', 'Login berhasil!');
+                
+            } elseif ($user->role ='admin') {
+                return redirect('/admin')->with('success', 'Login berhasil!');
+            }
         }
-        if ($user && $user->is_admin == 0 && Hash::check($request->password, $user->password)) {
-            // Simpan data user ke session
-            session(['user' => $user]);
-        
-            // Redirect ke dashboard dengan pesan sukses
-            return redirect('/admin')->with('success', 'Login berhasil!');
-        }
+    
+        // Jika password salah
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ])->onlyInput('email');
+    
+    
         
 
 

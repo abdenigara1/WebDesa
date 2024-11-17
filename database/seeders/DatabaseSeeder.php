@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
-            'is_admin' => 0, // Admin = 0
+            'role' => 'admin', // Admin = 0
         ]);
 
         // User Biasa
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@example.com',
             'password' => Hash::make('password'),
-            'is_admin' => 1, // User = 1
+            'role' => 'user', // User = 1
         ]);
     }
 }
