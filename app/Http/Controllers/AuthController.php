@@ -56,8 +56,7 @@ class AuthController extends Controller
             'email' => 'Email atau password salah.',
         ])->onlyInput('email');
     
-    
-        
+
 
 
         // Jika gagal login

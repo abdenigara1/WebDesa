@@ -44,8 +44,8 @@ class UserResource extends Resource
             ->columns([
                 TextColumn::make('name')->sortable(),
                 TextColumn::make('email')->sortable(),
-                TextColumn::make('role')->sortable(),
-                TextColumn::make('is_admin')
+                TextColumn::make('role')
+                    ->sortable()
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'admin' => 'danger',
