@@ -1,0 +1,178 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url(wall.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    
+}
+
+
+.isi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+
+}
+.logo,.logo2{
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.blur-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px); /* Adjust the blur radius as needed */
+    z-index: -1;
+}
+
+.banner{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 19px;
+    font-family: Arial;
+    padding-bottom: 10px;
+    color: white;
+}
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(77, 76, 76, 0.575);
+    background-color: rgba(174, 202, 236, 0.651); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    
+}
+
+
+
+.child {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    gap: 5px; /* Space between input and image */
+    
+}
+.grandson{
+    display: flex;
+    flex-direction: row;
+}
+
+.logonim{
+    margin-left: 5px;
+}
+
+
+.grandson2{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 150px;
+    border: 2px solid #cccccc6c;
+    border-radius: 5px;
+
+}
+input[type="number"] {
+    padding: 10px;
+    width: 150px;
+    border: 2px solid #cccccc6c;
+    border-radius: 5px;
+}
+input[type="password"] {
+    padding: 10px;
+    width: 150px;
+    border: 2px solid #cccccc6c;
+    border-radius: 5px;
+
+}
+
+input[type="date"] {
+    padding: 10px;
+    width: 150px;
+    border: 2px solid #cccccc6c;
+    border-radius: 5px;
+
+}
+.passwd2{
+    margin-top: 10px;
+}
+
+.logonim,.logonama {
+    max-width: 40px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    padding-bottom: 25px;
+}
+button.submit{
+    right: 0;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(126, 240, 255);
+    color: white;
+    padding: 5px 10px 5px 10px;
+
+}
+
+a{
+    font-size: 12px;
+    padding-top: 5px;
+    font-style: italic;
+    margin-top: 5px;
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+
+
+}
+button:hover{
+    background-color: rgb(235, 60, 60);
+    color: white;
+
+}
+a:hover{
+    color: rgb(252, 23, 16);
+}
+
+.alasan::onclick{
+    padding: 20%;
+}
+
+.alasan{
+    overflow: visible;
+    height: 40px;
+}

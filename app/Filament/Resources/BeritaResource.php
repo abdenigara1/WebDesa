@@ -12,6 +12,14 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Placeholder;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 
 class BeritaResource extends Resource
 {
@@ -28,7 +36,7 @@ class BeritaResource extends Resource
                     ->schema([
                         Grid::make(2)
                             ->schema([
-                                FileUpload::make('judulBerita'),
+                                Textinput::make('judulBerita'),
 
                                 Select::make('is_active')
                                 ->options([
@@ -38,7 +46,7 @@ class BeritaResource extends Resource
 
                             ]),
                     ]),
-                Placeholder::make('GAMBAR'),
+                Placeholder::make('THUMBNAIL BERITA'),
                 Card::make()
                     ->schema([
                         Grid::make(3)
