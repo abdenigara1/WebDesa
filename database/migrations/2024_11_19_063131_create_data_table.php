@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('imgBeritaD');
             $table->string('imgBeritaE');
             $table->string('berita');
-            $table->string('imgPromote');
-            $table->string('is_active');
+            $table->enum('is_active', [ 'active', 'not_active'])->default('not_active');
             $table->timestamps();
             $table->softDeletes(); 
         });

@@ -2,13 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\HeroResource\Pages;
-use App\Models\Hero;
+use App\Filament\Resources\BackgroundResource\Pages;
+use App\Filament\Resources\BackgroundResource\RelationManagers;
+use App\Models\Background;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Card;
@@ -18,23 +21,24 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Placeholder;
 
-class HeroResource extends Resource
+class BackgroundResource extends Resource
 {
-    protected static ?string $model = Hero::class;
+    protected static ?string $model = Background::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Placeholder::make('ORGANIASI'),
+                Placeholder::make('BACKGROUND'),
                 Card::make()
                     ->schema([
                         Grid::make(2)
                             ->schema([
-                                textinput::make('Organisasi')
+                                textinput::make('judul')
                                 ->nullable(),
-                                FileUpload::make('imgOrganisasi')
+                                FileUpload::make('background')
                                 ->nullable(),
                                 Select::make('is_active')
                                     ->options([
@@ -65,7 +69,7 @@ class HeroResource extends Resource
                     }),
             ])
             ->filters([
-                // Tambahkan filter jika diperlukan
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -80,16 +84,16 @@ class HeroResource extends Resource
     public static function getRelations(): array
     {
         return [
-            // Tambahkan relasi jika diperlukan
+            //
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHeroes::route('/'),
-            'create' => Pages\CreateHero::route('/create'),
-            'edit' => Pages\EditHero::route('/{record}/edit'),
+            'index' => Pages\ListBackgrounds::route('/'),
+            'create' => Pages\CreateBackground::route('/create'),
+            'edit' => Pages\EditBackground::route('/{record}/edit'),
         ];
     }
 }

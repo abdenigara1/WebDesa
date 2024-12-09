@@ -11,8 +11,23 @@ class HeroController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
-        //
+        $heroes = Hero::where('is_active', 'active')
+        ->inRandomOrder() // Mengambil data secara acak
+        ->take(6)         // Batasi hingga 6 data
+        ->get();
+
+        // Bagi data menjadi 2 grup dengan masing-masing 3 item
+        $kolom1 = $heroes->take(3); // Ambil 3 data pertama untuk div 1
+        $kolom2 = $heroes->slice(3); // Ambil sisanya (3 data) untuk div 2
+
+        return view('home', compact('heroes','kolom1', 'kolom2'));
+        
+
+
+
+        // Kirim ke view
     }
 
     /**

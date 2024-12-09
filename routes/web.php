@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,10 +14,24 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//default 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [Controller::class, 'home'])->name('home');
+Route::get('home', [Controller::class, 'home'])->name('home');
+Route::get('berita', [Controller::class, 'berita'])->name('berita');
+Route::get('about', [Controller::class, 'home'])->name('about');
+Route::get('dev', [Controller::class, 'home'])->name('dev');
+Route::get('org', [Controller::class, 'home'])->name('org');
+
+
+
+
+
+
 
 
 

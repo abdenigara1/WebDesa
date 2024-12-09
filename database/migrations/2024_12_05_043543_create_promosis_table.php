@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('user', function (Blueprint $table) {
-            //
+        Schema::create('promosis', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('imgPromote');
+            $table->enum('is_active', [ 'active', 'not_active'])->default('not_active');
+            $table->softDeletes(); 
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('user', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('promosis');
     }
 };

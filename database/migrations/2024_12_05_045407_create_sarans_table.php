@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('heroes', function (Blueprint $table) {
+        Schema::create('sarans', function (Blueprint $table) {
             $table->id();
-            $table->string('imgOrganisasi');
-            $table->string('Organisasi');
-            $table->enum('is_active', [ 'active', 'not_active'])->default('not_active');
             $table->timestamps();
+            $table->string('name');
+            $table->string('email');
+            $table->string('pesan');
+            $table->enum('is_active', [ 'active', 'not_active'])->default('not_active');
             $table->softDeletes(); 
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('heroes');
+        Schema::dropIfExists('sarans');
     }
 };

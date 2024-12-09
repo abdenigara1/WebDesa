@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Data;
+use App\Models\Saran;
 use Illuminate\Http\Request;
 
-class DataController extends Controller
+class SaranController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $datas = Data::where('is_active', 'active')->get();
-        return view('home', compact('datas'));
-    
-        
-   
-
+        //
     }
 
     /**
@@ -39,7 +34,7 @@ class DataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Data $data)
+    public function show(Saran $saran)
     {
         //
     }
@@ -47,7 +42,7 @@ class DataController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Data $data)
+    public function edit(Saran $saran)
     {
         //
     }
@@ -55,7 +50,7 @@ class DataController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Data $data)
+    public function update(Request $request, Saran $saran)
     {
         //
     }
@@ -63,7 +58,7 @@ class DataController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Data $data)
+    public function destroy(Saran $saran)
     {
         //
     }
