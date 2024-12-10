@@ -3,13 +3,21 @@
 @tailwind utilities;
 
 @layer components{
-    .col-logo{
-        @apply 
-    }
+
     .logo-tersi{
-        @apply flex relative flex-row w-36 gap-x-2 font-bold text-lg justify-center  bg-white bg-opacity-30 p-2 rounded-lg shadow-lg
+        @apply flex relative flex-row w-40 p-3 gap-x-2 font-bold text-lg justify-center  bg-white bg-opacity-30  rounded-lg shadow-xl overflow-hidden
     }
 }
+
+.element {
+    background-color: #f0f0f0;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.2), inset -10px -10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+    
+
 
     body {
         position: relative;

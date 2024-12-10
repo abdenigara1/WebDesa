@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>webdesa</title>
+    <title>home</title>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
  
 
 </head>
-<body class="min-h-screen  bg-cover bg-no-repeat text-white m-0 p-0 duration-700 ease-in-out ">
-    <nav class="py-8 flex flex-row justify-center mx-8">
-        <ul class="flex flex-row justify-center gap-x-16 text-2xl font-bold font ">
-            <a class="hover:underline" href="{{ route('home') }}">HOME</a>
-            <a class="hover:underline" href="{{ route('berita') }}">BERITA</a>
-            <a class="hover:underline" href="{{ route('org') }}">ORGANISASI</a>
-            <a class="hover:underline" href="{{ route('about') }}">ABOUT US</a>
-            <a class="hover:underline" href="{{ route('dev') }}">OUR DEV</a>
+<body class=" element min-h-screen  bg-cover bg-no-repeat text-white m-0 p-0 duration-700 ease-in-out ">
+    <nav class=" flex flex-row justify-center mx-8 pt-12 pb-2">
+        <ul class="flex flex-row justify-center gap-x-16 text-2xl font-inter font-bold ">
+            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('home') }}">HOME</a>
+            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('berita') }}">BERITA</a>
+            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('org') }}">ORGANISASI</a>
+            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('about') }}">ABOUT US</a>
+            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('dev') }}">OUR DEV</a>
 
 
         </ul>
         
-        
+     
         
     </nav>
 
@@ -36,11 +37,11 @@
    
         <div  class="flex flex-row gap-x-4">
         @foreach($kolom1 as $hero) 
-            <a href="">
+            <a class="hover:scale-105 transition-transform duration-300" href="">
                 <div class="logo-tersi">
                     <div class="absolute inset-0 backdrop-blur-md -z-10"></div>
                     <img class="size-10" src="{{ asset('storage/' . $hero->imgOrganisasi) }}" alt="" srcset="">
-                    <h3 class="line-clamp-2 overflow-hidden max-w-36  leading-none ">{{ $hero->Organisasi }}</h3>
+                    <h3 class="line-clamp-2 overflow-hidden max-w-36 leading-none opacity-90 ">{{ $hero->Organisasi }}</h3>
                 </div>
 
             </a>
@@ -51,11 +52,11 @@
       
         <div  class="flex flex-row gap-x-4">
         @foreach($kolom2 as $hero) 
-            <a href="">
+            <a class="hover:scale-105 transition-transform duration-300 " href="">
                 <div class="logo-tersi">
                     <div class="absolute inset-0 backdrop-blur-md -z-10"></div>
                     <img class="size-10" src="{{ asset('storage/' . $hero->imgOrganisasi) }}" alt="" srcset="">
-                    <h3 class="line-clamp-2 overflow-hidden max-w-32  leading-none ">{{ $hero->Organisasi }}</h3>
+                    <h3 class="line-clamp-2 overflow-hidden max-w-36 opacity-90 leading-none ">{{ $hero->Organisasi }}</h3>
                 </div>
 
             </a>

@@ -36,10 +36,10 @@ class BackgroundResource extends Resource
                     ->schema([
                         Grid::make(2)
                             ->schema([
-                                textinput::make('judul')
-                                ->nullable(),
+                                TextInput::make('judul')
+                                    ->nullable(),
                                 FileUpload::make('background')
-                                ->nullable(),
+                                    ->nullable(),
                                 Select::make('is_active')
                                     ->options([
                                         'active' => 'Active',
@@ -49,7 +49,6 @@ class BackgroundResource extends Resource
                                     ->nullable()
                             ]),
                     ]),
-
             ]);
     }
 
@@ -57,9 +56,12 @@ class BackgroundResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('Organisasi'),
-                ImageColumn::make('imgOrganisasi'),
+                TextColumn::make('id')->label('ID'), // Menampilkan ID
+                ImageColumn::make('background')->label('BACKGROUND'),
+                TextColumn::make('created_at')->label('Created At') // Menampilkan tanggal pembuatan
+                    ->dateTime(), // Format tanggal dan waktu
                 TextColumn::make('is_active')
+                    ->label('Status') // Menampilkan status aktif
                     ->sortable()
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
@@ -69,14 +71,14 @@ class BackgroundResource extends Resource
                     }),
             ])
             ->filters([
-                //
+                // Tambahkan filter jika diperlukan
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make(), // Menambahkan aksi untuk mengedit
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make(), // Menambahkan aksi untuk menghapus bulk
                 ]),
             ]);
     }
@@ -84,7 +86,7 @@ class BackgroundResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // Daftar relasi yang bisa ditambahkan di sini
         ];
     }
 

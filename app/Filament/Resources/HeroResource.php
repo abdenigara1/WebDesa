@@ -53,8 +53,11 @@ class HeroResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id'),
+       
                 TextColumn::make('Organisasi'),
                 ImageColumn::make('imgOrganisasi'),
+                TextColumn::make('created_at'),
                 TextColumn::make('is_active')
                     ->sortable()
                     ->badge()

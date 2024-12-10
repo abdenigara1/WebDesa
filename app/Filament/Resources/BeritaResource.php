@@ -20,6 +20,9 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Placeholder;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
+
 
 class BeritaResource extends Resource
 {
@@ -31,18 +34,20 @@ class BeritaResource extends Resource
     {
         return $form
             ->schema([
-                Placeholder::make('Berita'),
+                Placeholder::make('JUDUL & ISI ARTIKEL'),
                 Card::make()
                     ->schema([
                         Grid::make(2)
                             ->schema([
                                 Textinput::make('judulBerita'),
-
+                                
                                 Select::make('is_active')
                                 ->options([
                                     'active' => 'Active',
                                     'not_active' => 'Not Active'
                                 ]),
+
+                                RichEditor::make('berita'),
 
                             ]),
                     ]),
@@ -57,9 +62,6 @@ class BeritaResource extends Resource
                                     ->required(),
                                 FileUpload::make('imgBeritaC')
                                     ->required(),
-                                FileUpload::make('imgBeritaD'),
-                                FileUpload::make('imgBeritaE'),
-                                FileUpload::make('imgPromote'),
 
 
                             ]),
@@ -71,7 +73,18 @@ class BeritaResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('judulBerita')->sortable(),
+                TextColumn::make('updated_at')->sortable(),
+                TextColumn::make('is_active')
+                    ->sortable()
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'active' => 'success',
+                        'not_active' => 'danger',
+                        default => 'gray',
+                    }),
+
             ])
             ->filters([
                 //

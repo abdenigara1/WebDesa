@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('judul');
             $table->string('background');
-            $table->enum('is_active', [ 'active', 'not_active'])->default('not_active');
+            $table->enum('is_active', [ 'active', 'not_active'])->default('active');
             $table->softDeletes(); 
         });
     }

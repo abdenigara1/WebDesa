@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('pesan');
-            $table->enum('is_active', [ 'active', 'not_active'])->default('not_active');
+            $table->enum('sudah dilihat', [ 'sudah', 'belum'])->default('belum');
             $table->softDeletes(); 
         });
     }

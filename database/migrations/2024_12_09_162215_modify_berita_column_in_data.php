@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('promosis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('imgPromote');
-            $table->enum('is_active', [ 'active', 'not_active'])->default('active');
-            $table->softDeletes(); 
+        Schema::table('data', function (Blueprint $table) {
+            $table->text('berita')->change();  // Mengubah kolom menjadi TEXT
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('promosis');
+        Schema::table('data', function (Blueprint $table) {
+            //
+        });
     }
 };

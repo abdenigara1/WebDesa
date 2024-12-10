@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Models\Data;
 use App\Models\background;
 use App\Models\Promosi;
@@ -49,9 +50,9 @@ class Controller extends BaseController
         ->sortByDesc('created_at');
 
         // Bagi data menjadi 2 grup dengan masing-masing 3 item
-        $kolom1 = $datas
+        $news1 = $datas
         ->take(2) ; // Ambil data dari database
-        $kolom2 = $datas
+        $news2 = $datas
         ->slice(2);
 
         $backgrounds = Background::where('is_active', 'active')
@@ -62,28 +63,30 @@ class Controller extends BaseController
 
 
 
-
-
-        return view('berita', compact('kolom1', 'kolom2','backgrounds'));
+        return view('berita', compact('news1', 'news2','backgrounds',));
         
     }
 
 
 
     public function showBerita(Request $request, $id)
-    {
-        // Menemukan berita berdasarkan ID
+    {   
+
+
+        $backgrounds = Background::where('is_active', 'active')
+        ->inRandomOrder()
+        ->take(6)
+        ->pluck('background')
+        ->toArray();
+
         $berita = Data::findOrFail($id);
-    
-        // Menarik gambar acak yang memiliki ID yang sama dengan ID berita dari kolom yang ditentukan
-        $relatedImages = Image::whereIn('column', ['a', 'b', 'c', 'd', 'e'])
-            ->where('id', $berita->id) // Menggunakan ID berita, bukan ID gambar
-            ->inRandomOrder()
-            ->take(3)
-            ->get();
-        return response()->json($relatedImages);
+        return view('beritanews', compact('berita','backgrounds'));
     }
     
+    public function show($id) {
+        $berita = Berita::findOrFail($id); // Mengambil berita berdasarkan ID
+        return view('berita-detail', compact('berita')); // Mengarahkan ke halaman berita detail
+    }
  
 
 }
