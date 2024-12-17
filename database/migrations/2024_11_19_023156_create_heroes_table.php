@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('imgOrganisasi');
             $table->string('Organisasi');
+            $table->string('Deskripsi');
             $table->enum('is_active', [ 'active', 'not_active'])->default('not_active');
             $table->timestamps();
             $table->softDeletes(); 

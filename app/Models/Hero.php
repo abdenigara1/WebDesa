@@ -11,6 +11,7 @@ class Hero extends Model
     protected $fillable = [
         'imgOrganisasi',
         'Organisasi',
+        'Deskripsi',
         'is_active'
     ];
 

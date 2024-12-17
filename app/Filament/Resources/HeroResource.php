@@ -36,6 +36,8 @@ class HeroResource extends Resource
                                 ->nullable(),
                                 FileUpload::make('imgOrganisasi')
                                 ->nullable(),
+                                textinput::make('Deskripsi')
+                                ->nullable(),
                                 Select::make('is_active')
                                     ->options([
                                         'active' => 'Active',
@@ -57,6 +59,7 @@ class HeroResource extends Resource
        
                 TextColumn::make('Organisasi'),
                 ImageColumn::make('imgOrganisasi'),
+                TextColumn::make('Deskripsi'),
                 TextColumn::make('created_at'),
                 TextColumn::make('is_active')
                     ->sortable()

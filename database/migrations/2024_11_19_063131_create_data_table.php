@@ -14,13 +14,10 @@ return new class extends Migration
         Schema::create('data', function (Blueprint $table) {
             $table->id();
             $table->string('judulBerita');
-            $table->text('berita')->change();
+            $table->text('berita');
             $table->string('imgBeritaA');
             $table->string('imgBeritaB');
             $table->string('imgBeritaC');
-            $table->string('imgBeritaD');
-            $table->string('imgBeritaE');
-            $table->string('berita');
             $table->enum('is_active', [ 'active', 'not_active'])->default('active');
             $table->timestamps();
             $table->softDeletes(); 

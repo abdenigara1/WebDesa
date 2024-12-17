@@ -23,10 +23,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Controller::class, 'home'])->name('home');
 Route::get('home', [Controller::class, 'home'])->name('home');
 Route::get('berita', [Controller::class, 'berita'])->name('berita');
+Route::get('/organisasi', [Controller::class, 'organisasi'])->name('org');
+Route::get('berita/{id}', [Controller::class, 'showBerita'])->name('beritanews');
+
+
 Route::get('about', [Controller::class, 'home'])->name('about');
 Route::get('dev', [Controller::class, 'home'])->name('dev');
-Route::get('org', [Controller::class, 'home'])->name('org');
-Route::get('berita/{id}', [Controller::class, 'showBerita'])->name('beritanews');
+
 
 
 

@@ -13,10 +13,7 @@ class Data extends Model
         'imgBeritaA',
         'imgBeritaB',
         'imgBeritaC',
-        'imgBeritaD',
-        'imgBeritaE',
         'berita',
-        'imgPromote',
         'is_active'
     ];
     protected $dates = ['deleted_at']; // Untuk soft delete
