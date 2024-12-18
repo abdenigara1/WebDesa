@@ -67,7 +67,10 @@
 
 </head>
 
-<body class="bg-cover bg-center min-h-screen" style="background-image: url('{{ asset('assets/1.jpg') }}'); background-attachment: fixed;">
+<body class="bg-cover bg-center min-h-screen" style="background-image: url('{{ asset('src/1.jpg') }}'); background-attachment: fixed;">
+@if(session('success')) 
+        <div style="color: green;">{{ session('success') }}</div>
+    @endif
 
     <!-- Navigation Bar -->
     <header class="header flex items-center justify-between  fixed top-0 w-full px-8" style="margin-top: 12px;">
@@ -80,8 +83,8 @@
                 <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('home') }}">HOME</a>
                 <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('berita') }}">BERITA</a>
                 <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('org') }}">ORGANISASI</a>
-                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('about') }}">ABOUT US</a>
-                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('dev') }}">OUR DEV</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('contact') }}">ABOUT US</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('developer') }}">OUR DEV</a>
             </ul>
         </nav>
 
@@ -111,7 +114,7 @@
     </section>
 
     <!-- CONTACT US Section -->
-    <form action="{{ route('kirim') }}" method="POST">
+    <form action="{{ route('message.store') }}" method="POST">
         @csrf
         <section class="flex items-center justify-center mt-20">
             <div class="text-center text-white w-[700px]">
@@ -123,7 +126,7 @@
                         <input type="text" name="name" placeholder="NAMA..." class="input-field w-1/2 p-4 bg-white bg-opacity-20 text-white placeholder-white rounded-lg focus:outline-none">
                         <input type="email" name="email" placeholder="EMAIL..." class="input-field w-1/2 p-4 bg-white bg-opacity-20 text-white placeholder-white rounded-lg focus:outline-none">
                     </div>
-                    <textarea name="pesan" placeholder="PESAN..." class="input-field w-full p-4 h-52 bg-white bg-opacity-20 text-white placeholder-white rounded-lg focus:outline-none"></textarea>
+                    <textarea name="message" placeholder="PESAN..." class="input-field w-full p-4 h-52 bg-white bg-opacity-20 text-white placeholder-white rounded-lg focus:outline-none"></textarea>
                 </div>
                 <button type="submit" class="mt-4 p-2 bg-blue-500 text-white rounded-lg">SEND MESSAGE</button>
             </div>
@@ -172,6 +175,8 @@
 
 
     </div>
+
+
 
 </body>
 </html>

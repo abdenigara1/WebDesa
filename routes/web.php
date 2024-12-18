@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MessageController;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
@@ -23,12 +24,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Controller::class, 'home'])->name('home');
 Route::get('home', [Controller::class, 'home'])->name('home');
 Route::get('berita', [Controller::class, 'berita'])->name('berita');
-Route::get('/organisasi', [Controller::class, 'organisasi'])->name('org');
+Route::get('organisasi', [Controller::class, 'organisasi'])->name('org');
 Route::get('berita/{id}', [Controller::class, 'showBerita'])->name('beritanews');
 
+Route::get('/developer', function () {
+    return view('developer');
+})->name('developer');
 
-Route::get('about', [Controller::class, 'home'])->name('about');
-Route::get('dev', [Controller::class, 'home'])->name('dev');
+// routes/web.php
+
+
+
+
+Route::get('contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::post('/contact', [MessageController::class, 'store'])->name('message.store');
+
+
+
 
 
 

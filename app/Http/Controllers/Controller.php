@@ -51,7 +51,6 @@ class Controller extends BaseController
             ->get([ 'imgOrganisasi','Organisasi','Deskripsi']); // Pastikan kolom `imgOrganisasi` dan `header` diambil
     
 
-
         $backgrounds = Background::query()
             ->where('is_active', 'active')
             ->inRandomOrder()
@@ -105,6 +104,40 @@ class Controller extends BaseController
         return view('beritanews', compact('berita', 'backgrounds'));
     }
 
+    public function about(){
+        $backgrounds = Background::query()
+        ->where('is_active', 'active')
+        ->inRandomOrder()
+        ->take(6)
+        ->pluck('background')
+        ->toArray();
+
+
+        return view('about', compact( 'backgrounds'));
+    }
+
+
+    public function kirim(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'pesan' => 'required|string|min:8|confirmed',
+        ]);
+
+        // Buat user baru
+        Saran::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'pesan' => $request->pesan,
+        ]);
+
+        
+
+        // Redirect ke halaman login
+        return redirect()->route('home')->with('success', 'berhasil dikirim');
+    }
 
 
 }

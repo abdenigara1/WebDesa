@@ -11,7 +11,6 @@
             font-family: 'Roboto', sans-serif;
         }
         .background-image {
-            background-image: url('asset/wp3279322.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -26,7 +25,6 @@
         .slider img {
             scroll-snap-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
-            border-radius: 1rem;
         }
         .slider img:hover {
             transform: scale(1.1);
@@ -72,13 +70,15 @@
         <div class="w-1/3"></div>
         
         <!-- Menu Tengah -->
-        <div class="w-1/3 flex justify-center space-x-8">
-            <a href="{{ route('home') }}" class="text-white font-semibold hover:underline hover-light transition duration-300">HOME</a>
-            <a href="{{ route('berita') }}" class="text-white font-semibold hover:underline hover-light transition duration-300">BERITA</a>
-            <a href="{{ route('org') }}" class="text-white font-semibold hover:underline hover-light transition duration-300">ORGANISASI</a>
-            <a href="{{ route('about') }}" class="text-white font-semibold hover:underline hover-light transition duration-300">ABOUT US</a>
-            <a href="{{ route('dev') }}" class="text-white font-semibold hover:underline hover-light transition duration-300">OUR DEV</a>
-        </div>
+        <nav class=" flex flex-row justify-center mx-8 pt-12 pb-2">
+            <ul class="flex flex-row justify-center gap-x-16 text-2xl font-inter font-bold text-white ">
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('home') }}">HOME</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('berita') }}">BERITA</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('org') }}">ORGANISASI</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('contact') }}">ABOUT US</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('developer') }}">OUR DEV</a>
+            </ul>
+        </nav>
     
         <!-- Tombol Login di sebelah kanan -->
         <div class="w-1/3 flex justify-end space-x-4 login-container">
@@ -89,19 +89,31 @@
         </div>
     </header>
     
-    <div class="flex justify-center mt-64">
-    <div class="slider py-16 space-x-4 px-16">
-        @foreach ($heroes as $hero)
+    <div class="flex justify-center pt-36 ml-10 mr-10 ">
+    <div class="slider py-16  justify-center items-center ">
+    @foreach ($heroes as $index => $hero)
+        @if ($index % 2 == 0)
             <a href="#organization-{{ $hero->id }}">
                 <img 
-                    alt="{{ $hero->header ?? 'Organization Logo' }}" 
-                    class="h-72" 
-                    height="288" 
+                    alt="{{ $hero->Organisasi ?? 'Organization Logo' }}" 
+                    class="h-80 " 
                     src="{{ asset('storage/' . $hero->imgOrganisasi) }}" 
                     width="168"
                 />
             </a>
-        @endforeach
+        @else
+            <a href="#organization-{{ $hero->id }}">
+                    <img 
+                        alt="{{ $hero->Organisasi ?? 'Organization Logo' }}" 
+                        class="h-96" 
+                        src="{{ asset('storage/' . $hero->imgOrganisasi) }}" 
+                        width="168"
+                    />
+                </a>
+
+
+        @endif
+    @endforeach
     </div>
 </div>
 
@@ -125,7 +137,7 @@
                 <div class="bg-white bg-opacity-20 p-8 rounded-lg shadow-lg flex">
                     <img src="{{ asset('storage/' . $hero->imgOrganisasi) }}" alt="Karang Taruna logo" class="w-64 h-64 mr-8">
                     <div class="pl-4">
-                        <h2 class="text-2xl font-bold">{{ $hero->Organisasi }}</h2>
+                        <h2 class="text-white text-3xl font-bold">{{ $hero->Organisasi }}</h2>
                         <p class="mt-4 text-white">
                             {{ $hero->Deskripsi }}
                         </p>
@@ -135,7 +147,7 @@
                 <!-- Tampilan Kanan -->
                 <div class="bg-white bg-opacity-20 p-8 rounded-lg shadow-lg flex">
                     <div class="text-right w-full">
-                        <h2 class="text-2xl font-bold">{{ $hero->Organisasi }}</h2>
+                        <h2 class="text-white text-3xl font-bold">{{ $hero->Organisasi }}</h2>
                         <p class="mt-4 text-white">
                             {{ $hero->Deskripsi }}
                         </p>

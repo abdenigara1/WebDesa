@@ -20,44 +20,52 @@
 
     <!-- Custom Styles -->
     <style>
-        .hover-light:hover {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-                         0 0 20px rgba(255, 255, 255, 0.5),
-                         0 0 30px rgba(255, 255, 255, 0.4);
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .login-link {
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        .login-container:hover .login-link {
-            transform: translateX(0);
-            opacity: 1;
-        }
+    .hover-light {
+        transition: text-shadow 0.3s ease-in-out;  /* Transisi halus pada text-shadow */
+    }
+
+    .hover-light:hover {
+        text-shadow: 0 5px 20px rgba(255, 255, 255, 0.8),   /* Glow pertama, sedikit lebih terang */
+                     0 10px 30px rgba(255, 255, 255, 0.5),   /* Glow lebih panjang */
+                     0 20px 50px rgba(255, 255, 255, 0.2);   /* Glow yang lebih bias di ujung */
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .login-link {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    .login-container:hover .login-link {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
     </style>
 </head>
 <body class="bg-cover bg-center min-h-screen" style="background-image: url('asset/wp3279322.jpg'); background-attachment: fixed;">
 
     <!-- Navigation Bar -->
-    <header class="header flex items-center justify-between py-4 fixed top-0 w-full px-8" style="margin-top: 12px;">
+    <header class="header flex items-center justify-between  fixed top-0 w-full px-8" style="margin-top: 12px;">
         <!-- Empty Space for Balancing -->
         <div class="w-1/3"></div>
 
         <!-- Middle Menu -->
-        <nav class="py-8 flex justify-center text-white">
-            <ul class="flex gap-x-16 text-2xl font-bold line-clamp-1">
-                <li><a class="hover:underline line-clamp-1" href="{{ route('home') }}">HOME</a></li>
-                <li><a class="hover:underline" href="{{ route('berita') }}">BERITA</a></li>
-                <li><a class="hover:underline" href="{{ route('org') }}">ORGANISASI</a></li>
-                <li><a class="hover:underline" href="{{ route('about') }}">ABOUT US</a></li>
-                <li><a class="hover:underline" href="{{ route('dev') }}">OUR DEV</a></li>
+        <nav class=" flex flex-row justify-center mx-8 pt-12 pb-2">
+            <ul class="flex flex-row justify-center gap-x-16 text-2xl font-inter font-bold text-white ">
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('home') }}">HOME</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('berita') }}">BERITA</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('org') }}">ORGANISASI</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('contact') }}">ABOUT US</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('developer') }}">OUR DEV</a>
             </ul>
         </nav>
 

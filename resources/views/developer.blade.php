@@ -30,19 +30,20 @@
         }
     </style>
 </head>
-<body class="bg-cover bg-center min-h-screen">
+<body class="bg-cover bg-center min-h-screen " style="background-image: url('{{ asset('src/1.jpg') }}');">
     <!-- Navigation Bar -->
     <header class="flex items-center justify-between py-4 fixed top-0 w-full px-8" style="margin-top: 12px;">
         <!-- Area kiri kosong untuk balancing -->
         <div class="w-1/3"></div>
         
         <!-- Menu Tengah -->
-        <div class="w-1/3 flex justify-center space-x-8">
-            <a href="index.html" class="text-white font-semibold hover:underline hover-light transition duration-300">HOME</a>
-            <a href="berita.html" class="text-white font-semibold hover:underline hover-light transition duration-300">BERITA</a>
-            <a href="organ.html" class="text-white font-semibold hover:underline hover-light transition duration-300">ORGANISASI</a>
-            <a href="about.html" class="text-white font-semibold hover:underline hover-light transition duration-300">ABOUT US</a>
-            <a href="our.html" class="text-white font-semibold hover:underline hover-light transition duration-300">OUR DEV</a>
+        <div class="w-1/3 flex justify-center space-x-8 font-bold text-white">
+\
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('home') }}">HOME</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('berita') }}">BERITA</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('org') }}">ORGANISASI</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('contact') }}">ABOUT US</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('developer') }}">OUR DEV</a>
         </div>
     
         <!-- Tombol Login di sebelah kanan -->
@@ -62,7 +63,7 @@
         </p>
        </div>
        <div class="flex justify-center space-x-8 mt-16">
-        <div class="text-center">
+        <div class=" text-left">
          <img alt="Profile picture of AbdeNigga" class="rounded-lg" height="200" src="https://storage.googleapis.com/a1aa/image/fXYyeyf8SLatMo5xJkcqmEIXKeVfkY7RRQgCbwDvxFj8cOZeE.jpg" width="200"/>
          <h2 class="text-xl mt-4 text-white">
           AbdeNigga
@@ -71,7 +72,7 @@
           Terbitkan dari yang hayam
          </p>
          <p class="text-sm text-white">
-          Front DEV.
+          Front DEV. <br>Backend <br>QA <br>
          </p>
         </div>
         <div class="text-center">

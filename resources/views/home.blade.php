@@ -15,12 +15,11 @@
 <body class=" element min-h-screen  bg-cover bg-no-repeat text-white m-0 p-0 duration-700 ease-in-out ">
     <nav class=" flex flex-row justify-center mx-8 pt-12 pb-2">
         <ul class="flex flex-row justify-center gap-x-16 text-2xl font-inter font-bold ">
-            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('home') }}">HOME</a>
-            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('berita') }}">BERITA</a>
-            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('org') }}">ORGANISASI</a>
-            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('about') }}">ABOUT US</a>
-            <a class="hover:underline  hover:scale-105 transition-transform duration-300  hover:shadow-lg hover:shadow-white" href="{{ route('dev') }}">OUR DEV</a>
-
+        <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('home') }}">HOME</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('berita') }}">BERITA</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('org') }}">ORGANISASI</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('contact') }}">ABOUT US</a>
+                <a class="hover:underline  hover:scale-105 transition-transform duration-300   hover:shadow-white" href="{{ route('developer') }}">OUR DEV</a>
 
         </ul>
         
